@@ -1,0 +1,8 @@
+RewriteEngine on
+#RewriteRule \.(js|ico|gif|jpg|png|css)$ /tpl/host13/xintairen/css/$1
+#RewriteRule (.*).site.me$ /tpl/host13/$1.css
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule (.*)$ /public/$1
+
