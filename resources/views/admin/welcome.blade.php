@@ -32,7 +32,7 @@
             <h1 class="logo-name">Great God</h1>
         </div>
         <h3>欢迎使用 Great God</h3>
-        <form class="m-t" role="form" action="login" method="post">
+        <form class="m-t" role="form" action="/admin/login" method="post">
             <input type="hidden" name="_token" id="_token" value="{{csrf_token()}}">
             <div class="form-group">
                 <input type="text" class="form-control" name="UserName" placeholder="用户名" required="">
