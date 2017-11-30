@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 use App\Admin;
 use App\Http\Controllers\Controller;
+use App\Jobs\SendReminderEmail;
 use App\Menu;
 use Illuminate\Http\Request;
+use App\jobs\User;
 
 class LoginController extends Controller
 {
@@ -31,6 +33,8 @@ class LoginController extends Controller
         $loginResult    = $Admin->where('username', $userName)->first();
         if(null !== $loginResult)
         {
+//            $user = User::findOrFail(1);
+//            $this->dispatch(new SendReminderEmail($user));
             $loginData = $loginResult->toArray();
             if($loginData['password'] === md5($passWord))
             {
@@ -59,6 +63,7 @@ class LoginController extends Controller
                             $M_Meun[$value['pid']]['children'][] = $value;
                         }
                     }
+                    //
                 }
                 return view("admin.index",['meun' => $M_Meun,'userInfo'=>$loginData]);
             }
